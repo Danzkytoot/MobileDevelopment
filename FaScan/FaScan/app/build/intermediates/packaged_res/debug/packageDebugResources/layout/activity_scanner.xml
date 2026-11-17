@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" android:padding="12dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Select the form you are scanning:" />
+        <Spinner android:id="@+id/spForm" android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1" android:layout_marginTop="8dp" android:background="#BDBDBD">
+            <androidx.camera.view.PreviewView android:id="@+id/previewView"
+                android:layout_width="match_parent" android:layout_height="match_parent" />
+            <View android:layout_width="match_parent" android:layout_height="match_parent"
+                android:layout_margin="20dp" android:background="@drawable/guide_frame" />
+        </FrameLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:textSize="12sp"
+            android:text="Form Quality Checklist\n• All 4 black corner squares are visible\n• Page lies flat on a light surface\n• Good lighting, no shadows, phone held upright" />
+
+        <Button android:id="@+id/btnCapture" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Scan Registration Form" />
+        <Button android:id="@+id/btnSample" android:layout_width="match_parent"
+            android:layout_height="wrap_content" style="?android:attr/buttonBarButtonStyle"
+            android:text="Test with a sample filled form" />
+    </LinearLayout>
+
+    <!-- full-screen loading screen, shown right after the picture is taken -->
+    <LinearLayout android:id="@+id/loadingScreen" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:orientation="vertical"
+        android:gravity="center" android:padding="32dp" android:background="#FFFFFF"
+        android:clickable="true" android:focusable="true" android:visibility="gone">
+
+        <ProgressBar android:id="@+id/pbLoading" style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:max="100" />
+        <TextView android:id="@+id/tvPercent" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="12dp"
+            android:textSize="24sp" android:textStyle="bold" android:text="0%" />
+        <TextView android:id="@+id/tvStep" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="4dp"
+            android:text="Loading..." />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="4dp" android:textColor="#1B5E20" android:text="Please wait" />
+    </LinearLayout>
+</FrameLayout>
